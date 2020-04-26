@@ -13,9 +13,19 @@ export class UserService {
   }
 
   getUsers() {
-    return this.http.get(`${this.URL}users?page=/2`)
+
+    return this.http.get(`${this.URL}users?page=/2&delay=3`)
       .pipe(
         map((data: any) => data.data)
       );
   }
+
+  getUserById(id: string) {
+    return this.http.get(`${this.URL}users/${id}`)
+      .pipe(
+        map((data: any) => data.data)
+      );
+  }
+
+
 }
